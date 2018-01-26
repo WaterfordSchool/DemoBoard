@@ -21,16 +21,18 @@ import org.usfirst.frc.team3245.robot.commands.TankDriveWithJoystick;
  * and a gyro.
  */
 public class DriveTrain extends Subsystem {
-	private SpeedController frontLeftMotor = new Talon(1);
+	private SpeedController frontLeftMotor = new Talon(0);
+	private SpeedController middleLeftMotor = new Talon(1);
 	private SpeedController rearLeftMotor = new Talon(2);
 	private SpeedController frontRightMotor = new Talon(3);
-	private SpeedController rearRightMotor = new Talon(4);
+	private SpeedController middleRightMotor = new Talon(4);
+	private SpeedController rearRightMotor = new Talon(5);
 
 	private RobotDrive drive = new RobotDrive(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 
-	private Encoder leftEncoder = new Encoder(1, 2);
-	private Encoder rightEncoder = new Encoder(3, 4);
-	private AnalogInput rangefinder = new AnalogInput(6);
+	//private Encoder leftEncoder = new Encoder(1, 2);
+	//private Encoder rightEncoder = new Encoder(3, 4);
+	//private AnalogInput rangefinder = new AnalogInput(6);
 	private AnalogGyro gyro = new AnalogGyro(1);
 
 	public DriveTrain() {
@@ -52,12 +54,14 @@ public class DriveTrain extends Subsystem {
 
 		// Let's show everything on the LiveWindow
 		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeftMotor);
+		LiveWindow.addActuator("Drive Train", "Middle_Left Motor", (Talon) middleLeftMotor);
 		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeftMotor);
 		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRightMotor);
+		LiveWindow.addActuator("Drive Train", "Middle Right Motor", (Talon) middleRightMotor);
 		LiveWindow.addActuator("Drive Train", "Back Right Motor", (Talon) rearRightMotor);
-		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
-		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
-		LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
+		//LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
+		//LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
+		//LiveWindow.addSensor("Drive Train", "Rangefinder", rangefinder);
 		LiveWindow.addSensor("Drive Train", "Gyro", gyro);
 	}
 
@@ -74,10 +78,10 @@ public class DriveTrain extends Subsystem {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	public void log() {
-		SmartDashboard.putNumber("Left Distance", leftEncoder.getDistance());
-		SmartDashboard.putNumber("Right Distance", rightEncoder.getDistance());
-		SmartDashboard.putNumber("Left Speed", leftEncoder.getRate());
-		SmartDashboard.putNumber("Right Speed", rightEncoder.getRate());
+		//SmartDashboard.putNumber("Left Distance", leftEncoder.getDistance());
+		//SmartDashboard.putNumber("Right Distance", rightEncoder.getDistance());
+		//SmartDashboard.putNumber("Left Speed", leftEncoder.getRate());
+		//SmartDashboard.putNumber("Right Speed", rightEncoder.getRate());
 		SmartDashboard.putNumber("Gyro", gyro.getAngle());
 	}
 
