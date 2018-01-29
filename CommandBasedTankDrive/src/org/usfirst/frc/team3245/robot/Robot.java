@@ -7,10 +7,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3245.robot.commands.Autonomous;
-import org.usfirst.frc.team3245.robot.subsystems.Claw;
 import org.usfirst.frc.team3245.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team3245.robot.subsystems.Elevator;
-import org.usfirst.frc.team3245.robot.subsystems.Wrist;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,22 +21,16 @@ public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 
 	public static DriveTrain drivetrain;
-	public static Elevator elevator;
-	public static Wrist wrist;
-	public static Claw claw;
 	public static OI oi;
 
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
-	@Override
+	//@Override
 	public void robotInit() {
 		// Initialize all subsystems
 		drivetrain = new DriveTrain();
-		elevator = new Elevator();
-		wrist = new Wrist();
-		claw = new Claw();
 		oi = new OI();
 
 		// instantiate the command used for the autonomous period
@@ -46,12 +38,9 @@ public class Robot extends IterativeRobot {
 
 		// Show what command your subsystem is running on the SmartDashboard
 		SmartDashboard.putData(drivetrain);
-		SmartDashboard.putData(elevator);
-		SmartDashboard.putData(wrist);
-		SmartDashboard.putData(claw);
 	}
 
-	@Override
+	//@Override
 	public void autonomousInit() {
 		autonomousCommand.start(); // schedule the autonomous command (example)
 	}
@@ -59,13 +48,13 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during autonomous
 	 */
-	@Override
+	//@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		log();
 	}
 
-	@Override
+	//@Override
 	public void teleopInit() {
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
@@ -77,7 +66,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during operator control
 	 */
-	@Override
+	//@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		log();
@@ -86,7 +75,7 @@ public class Robot extends IterativeRobot {
 	/**
 	 * This function is called periodically during test mode
 	 */
-	@Override
+	//@Override
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
@@ -95,9 +84,6 @@ public class Robot extends IterativeRobot {
 	 * The log method puts interesting information to the SmartDashboard.
 	 */
 	private void log() {
-		wrist.log();
-		elevator.log();
 		drivetrain.log();
-		claw.log();
 	}
 }

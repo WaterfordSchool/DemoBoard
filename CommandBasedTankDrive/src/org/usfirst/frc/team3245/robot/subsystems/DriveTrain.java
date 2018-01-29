@@ -44,12 +44,12 @@ public class DriveTrain extends Subsystem {
 		// simulate 360 tick encoders. This if statement allows for the
 		// real robot to handle this difference in devices.
 		if (Robot.isReal()) {
-			leftEncoder.setDistancePerPulse(0.042);
-			rightEncoder.setDistancePerPulse(0.042);
+			//leftEncoder.setDistancePerPulse(0.042);
+			//rightEncoder.setDistancePerPulse(0.042);
 		} else {
 			// Circumference in ft = 4in/12(in/ft)*PI
-			leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
-			rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
+			//leftEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
+			//rightEncoder.setDistancePerPulse((4.0 / 12.0 * Math.PI) / 360.0);
 		}
 
 		// Let's show everything on the LiveWindow
@@ -69,7 +69,7 @@ public class DriveTrain extends Subsystem {
 	 * When no other command is running let the operator drive around using the
 	 * PS3 joystick.
 	 */
-	@Override
+	//@Override
 	public void initDefaultCommand() {
 		setDefaultCommand(new TankDriveWithJoystick());
 	}
@@ -117,22 +117,22 @@ public class DriveTrain extends Subsystem {
 	 */
 	public void reset() {
 		gyro.reset();
-		leftEncoder.reset();
-		rightEncoder.reset();
+		//leftEncoder.reset();
+		//rightEncoder.reset();
 	}
 
 	/**
 	 * @return The distance driven (average of left and right encoders).
 	 */
-	public double getDistance() {
-		return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
-	}
+	//public double getDistance() {
+		//return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+	//}
 
 	/**
 	 * @return The distance to the obstacle detected by the rangefinder.
 	 */
-	public double getDistanceToObstacle() {
+	//public double getDistanceToObstacle() {
 		// Really meters in simulation since it's a rangefinder...
-		return rangefinder.getAverageVoltage();
-	}
+		//return rangefinder.getAverageVoltage();
+	//}
 }
