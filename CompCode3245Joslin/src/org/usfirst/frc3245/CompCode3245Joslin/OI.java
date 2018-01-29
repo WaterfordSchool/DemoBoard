@@ -64,10 +64,10 @@ public class OI {
 
         operator = new Joystick(1);
         
-        leftTrigger = new JoystickButton(operator, 7);
-        leftTrigger.whileHeld(new CubeIntake());
         rightTrigger = new JoystickButton(operator, 8);
         rightTrigger.whileHeld(new CubeExchange());
+        leftTrigger = new JoystickButton(operator, 7);
+        leftTrigger.whileHeld(new CubeIntake());
         driver = new Joystick(0);
         
 
