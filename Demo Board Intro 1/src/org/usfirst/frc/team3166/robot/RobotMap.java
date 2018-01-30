@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3166.robot;
 
-import edu.wpi.first.wpilibj.CANTalon;
+import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
@@ -56,9 +56,9 @@ public class RobotMap {
 	Compressor airPump = new Compressor (12);
 		
 //Creating all the motors controllers on the CAN and declaring their node numbers
-	CANTalon rightCANDrive = new CANTalon (32);	
-	CANTalon leftCANDrive = new CANTalon (45);
-	CANTalon cameraPan = new CANTalon(31);
+	WPI_TalonSRX rightCANDrive = new WPI_TalonSRX (32);	
+	WPI_TalonSRX leftCANDrive = new WPI_TalonSRX (45);
+	WPI_TalonSRX cameraPan = new WPI_TalonSRX(31);
 	
 //now it is time to declare which solenoids are attached to which pins on the PCM
 	DoubleSolenoid sideToSide = new DoubleSolenoid (12,1,0);
