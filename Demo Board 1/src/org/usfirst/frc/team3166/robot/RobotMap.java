@@ -3,12 +3,12 @@ package org.usfirst.frc.team3166.robot;
 import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Servo;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+//import edu.wpi.first.wpilibj.Solenoid; Not needed until we add a single solenoid to Demo Board
+
 
 public class RobotMap {
 	
@@ -24,12 +24,12 @@ public class RobotMap {
 	Talon leftDriveMotor = new Talon (1);	
 	Talon marsMotor = new Talon (7);
 	Servo theServo = new Servo (9);//declares a servo object named theServo
-	Servo rCubedAngle = new Servo (3);//used to test rookie rcubed servo
-		
+			
 //the encoder feedback comes back to DIO pins 0 and 1 on the roboRIO
 //false tells the encoder to not invert the counting direction
 //k2X refers to the accuracy we desire (choices are 1, 2 & 4)
-	Encoder enc = new Encoder (0,1,false,Encoder.EncodingType.k1X);
+	//Encoder enc = new Encoder (0,1,false, Encoder.EncodingType.k1X);
+	//Encoder Grayhill = new Encoder (8,9,false, Encoder.EncodingType.k1X);
 	
 //declaring all the objects connected to the Relay pins on the roboRIO
 	Relay blueRelay = new Relay (3); //blueRelay is the Spike relay connected to the outside of the W

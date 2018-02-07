@@ -2,7 +2,7 @@ package org.usfirst.frc.team3166.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
+//import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	RobotDrive myRobot = new RobotDrive(1,2);
+	//RobotDrive myRobot = new RobotDrive(1,2);
 	Joystick stick = new Joystick(0);
 	Timer timer = new Timer();
 
@@ -77,9 +77,9 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		// Drive for 2 seconds
 		if (timer.get() < 2.0) {
-			myRobot.drive(-0.1, 0.0); //drive forward half speed
+			//myRobot.drive(-0.1, 0.0); //drive forward half speed
 		} else {
-			myRobot.drive(0.0, 0.0); //top robot
+			//myRobot.drive(0.0, 0.0); //top robot
 		}
 	}
 	/**
@@ -93,14 +93,14 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control
 	 */
 	public void teleopPeriodic() {
-		myRobot.arcadeDrive(stick); 
+		//myRobot.arcadeDrive(stick); 
 	}
 	
 	/**
 	 * This function is called periodically during test mode
 	 */
 	public void testPeriodic()	{
-		LiveWindow.run();
+		//LiveWindow.run();
 	} //end of testPeriodic
 
 

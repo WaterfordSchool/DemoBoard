@@ -50,7 +50,7 @@ public class Robot extends IterativeRobot {
 
 	RobotMap RM = new RobotMap();
 	Input IM = new Input();
-
+	Feedback FB = new Feedback();
 
 
 	/**
@@ -93,7 +93,7 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 
-		RM.enc.reset();
+		FB.enc.reset();
 		/**We've already instantiated the compressor in the CAN portion of the class
 		 * declarations. This next command just confirms that closed loop control is
 		 * on even though it should already be on from the class declarations.
@@ -157,7 +157,10 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control
 	 */
 	public void teleopPeriodic() {
-
+		
+		SmartDashboard.putNumber("Grayhill encoder value is ", FB.Grayhill.getDistance());
+				
+				
 		rcubedtest();
 
 		if (IM.stick.getRawButton(IM.LEFT_STICK_IN))	{
@@ -259,8 +262,7 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic()	{
 
 		if (IM.stick.getRawButton(IM.LEFT_STICK_IN))	{
-			//normally we call encodershow (); if the left stick is down but for rcubed we are hijacking that input    	
-			rcubedtest ();
+			//normally we call encodershow ();
 		}
 		else 	{
 			//run the bag motors first
@@ -464,12 +466,12 @@ public class Robot extends IterativeRobot {
 
 		else {
 			marsspeed = 0; setMotor();//stop the encoder motor 
-			RM.enc.reset();//zero out the encoder counter ready for next time
+			FB.enc.reset();//zero out the encoder counter ready for next time
 		}
 
-		marsrot = RM.enc.get();
+		marsrot = FB.enc.get();
 		sun = sun + (marsrot/200);
-		SmartDashboard.putNumber("motor rots ", RM.enc.get());
+		SmartDashboard.putNumber("motor rots ", FB.enc.get());
 
 
 	} //end of encodershow
@@ -507,11 +509,6 @@ public class Robot extends IterativeRobot {
 		//by never "set"ting the servo to zero it remains at last angle until a new one is selected
 
 
-		RM.rCubedAngle.setRaw(angle);
-		
-		RM.rCubedAngle.set(0);
-
-		
 			
 		
 	}//end of rcubed test
