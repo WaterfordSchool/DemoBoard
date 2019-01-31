@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	
 
 	/**
 	 * These are parentheses ()
@@ -98,7 +99,9 @@ public class Robot extends IterativeRobot {
 		 * declarations. This next command just confirms that closed loop control is
 		 * on even though it should already be on from the class declarations.
 		 */
-		RM.airPump.setClosedLoopControl (true);
+		//RM.airPump.setClosedLoopControl (true);
+		//RM.airPump.setClosedLoopControl (false)
+		
 
 	}
 	/**
@@ -261,6 +264,8 @@ public class Robot extends IterativeRobot {
 
 	public void testPeriodic()	{
 
+		RM.airPump.setClosedLoopControl (true);
+		
 		if (IM.stick.getRawButton(IM.LEFT_STICK_IN))	{
 			//normally we call encodershow ();
 		}

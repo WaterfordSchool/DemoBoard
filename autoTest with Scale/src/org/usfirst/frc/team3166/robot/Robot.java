@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
+		chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}//closes method robotInit
 
@@ -98,7 +98,7 @@ public class Robot extends TimedRobot {
 	autoDelay = SmartDashboard.getNumber("time delay in seconds ", 0);
 	
 	SmartDashboard.putString("The robot is starting on the ", robotInitPos);
-	SmartDashboard.putNumber("I will wait this many seconds before moving ", autoDelay);
+	SmartDashboard.putNumber("time delay in seconds ", autoDelay);
 	SmartDashboard.putString("The game specific data is ", gameData);
 	
 		//nested if statements figure out which path to take
